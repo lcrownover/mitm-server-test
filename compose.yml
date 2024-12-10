@@ -1,0 +1,22 @@
+---
+services:
+    backend:
+        build:
+            context: backend
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./backend/main.py:/app/main.py
+    frontend:
+        build:
+            context: frontend
+            dockerfile: ./Dockerfile
+        volumes:
+            - ./frontend/main.py:/app/main.py
+        ports:
+            - 8000:8000
+    # mitm:
+    #     build:
+    #         context: mitm
+    #         dockerfile: ./Dockerfile
+    #     volumes:
+    #         - ./mitm/main.py:/app/main.py
